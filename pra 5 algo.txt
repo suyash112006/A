@@ -1,0 +1,23 @@
+### Selection Sort Algorithm
+
+1. **Start**
+2. **Initialize MIN**: Set MIN to location 0.
+3. **Search for Minimum Element**: Find the minimum element in the list.
+4. **Swap Elements**: Swap the minimum element with the element at location MIN.
+5. **Increment MIN**: Increment MIN to point to the next element.
+6. **Repeat**: Repeat steps 3 to 5 until the list is sorted.
+7. **End**
+
+### Bubble Sort Algorithm
+
+1. **Start**
+2. **Initialize**: Set i = 0.
+3. **Compare Adjacent Elements**: Compare each pair of adjacent elements.
+4. **Swap if Necessary**: Swap elements if the first is greater than the second.
+5. **Repeat Comparison**: Repeat steps 3 to 4 for all elements.
+6. **Increment i**: Increment the value of i by 1.
+7. **Repeat**: Repeat steps 3 to 6 until i < n.
+8. **Print Sorted List**: Print the sorted list of elements.
+9. **End**
+
+These streamlined algorithms are clear and concise, perfect for an exam setting. If you need any further explanations or details, feel free to ask! 😊

@@ -1,0 +1,60 @@
+### Algorithm to Check Palindrome Using Stack and Print Reversed String
+
+#### **Problem Statement**:
+Given a string, determine if it is a palindrome by using a stack and also print the reversed string.
+
+---
+
+### **Algorithm**:
+
+1. **Start**.
+
+2. **Input the String**:
+   - Read the string from the user.
+
+3. **Convert the String**:
+   - Remove all spaces, punctuation, and special characters.
+   - Convert all uppercase letters to lowercase.
+
+4. **Initialize a Stack**:
+   - Create an empty stack.
+   - Set `top = -1`.
+
+5. **Push Characters to Stack**:
+   - For each character in the converted string:
+     - Increment `top`.
+     - Push the character onto the stack.
+
+6. **Reverse the String**:
+   - Initialize an empty string `reversed_string`.
+   - While the stack is not empty:
+     - Pop a character from the stack.
+     - Append it to `reversed_string`.
+
+7. **Check for Palindrome**:
+   - Compare the original converted string with `reversed_string`:
+     - If they are the same, print "The string is a palindrome."
+     - Otherwise, print "The string is not a palindrome."
+
+8. **Print the Reversed String**:
+   - Display the `reversed_string`.
+
+9. **End**.
+
+---
+
+### **Example Execution**:
+
+**Input**: `"Poor Dan is in a droop"`
+
+**Steps**:
+1. **Convert the string**: `"poordanisinadroop"`
+2. **Push to stack**: Push each character onto the stack.
+3. **Reverse the string**: Pop characters to get `"poordanisinadroop"`.
+4. **Check for palindrome**: Compare:
+   - Original: `"poordanisinadroop"`
+   - Reversed: `"poordanisinadroop"`
+
+**Output**:
+- Reversed String: `"poordanisinadroop"`
+- Result: `"The string is a palindrome."`

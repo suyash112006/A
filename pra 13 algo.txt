@@ -1,0 +1,11 @@
+Algorithm:- 
+Step1:- START 
+Step 2:- Declare integer array, integer front, rear. 
+Step 3:- Declare integer data, ch. 
+Step 4:- Accept integer array from user. 
+Step 5:- Call  function addf 
+Step 6:- Call function addr 
+Step 7:- Call function delf 
+Step 8:- Call function delr
+Step 9:-Call function Print. 
+Stop 10:- Stop

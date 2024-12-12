@@ -1,0 +1,59 @@
+    +----------------------+
+    |        Start         |
+    +----------------------+
+             |
+             v
+    +----------------------+
+    | Input the String     |
+    +----------------------+
+             |
+             v
+    +----------------------+
+    | Convert the String   |
+    | (remove spaces,      |
+    | punctuation, special |
+    | characters; convert  |
+    | to lowercase)        |
+    +----------------------+
+             |
+             v
+    +----------------------+
+    | Initialize a Stack   |
+    | (empty stack, top=-1)|
+    +----------------------+
+             |
+             v
+    +----------------------+
+    | Push Characters to   |
+    | Stack                |
+    +----------------------+
+             |
+             v
+    +----------------------+
+    | Reverse the String   |
+    | (initialize          |
+    | reversed_string;     |
+    | while stack not      |
+    | empty, pop and append|
+    | to reversed_string)  |
+    +----------------------+
+             |
+             v
+    +----------------------+
+    | Check for Palindrome |
+    | (compare converted   |
+    | string and reversed  |
+    | string; if same,     |
+    | print "palindrome",  |
+    | else "not palindrome")|
+    +----------------------+
+             |
+             v
+    +----------------------+
+    | Print Reversed String|
+    +----------------------+
+             |
+             v
+    +----------------------+
+    |        End           |
+    +----------------------+

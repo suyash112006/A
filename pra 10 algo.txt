@@ -1,0 +1,9 @@
+Algorithm:- 
+Step 1:- START. 
+Step 2:- Declare Character Array Data [MAX]. 
+Step 3:- Declare integer top, I, character ch, found=0. 
+Step 4:-Accept char data and other data from user. 
+Step5:- Call function Push  
+Step6:- Call function Pop 
+Step7:- STOP
+

@@ -1,0 +1,28 @@
+### **Algorithm**
+
+1. **Start**  
+2. **Accept and Display Array**:
+   - Input the total number of students.
+   - Input student roll numbers in sorted order into an array.
+   - Display the array.  
+3. **Recursive Binary Search**:
+   - Input the roll number to search.
+   - Use recursion to compare the roll number with the middle element.
+   - If found, return the index.
+   - If not, continue in the left or right half of the array.  
+4. **Iterative Binary Search**:
+   - Input the roll number to search.
+   - Use a loop to compare the roll number with the middle element.
+   - Adjust the search bounds until the number is found or the array is fully searched.
+   - Return the index if found, or indicate "not found."  
+5. **Fibonacci Search**:
+   - Input the roll number to search.
+   - Generate a Fibonacci sequence to divide the array into sections.
+   - Compare the roll number with the calculated positions using Fibonacci indices.
+   - Return the index if found, or indicate "not found."  
+6. **Display the Result**:
+   - Show the position of the roll number or a "not found" message.
+7. **Repeat or Exit**:
+   - Allow the user to repeat or exit the program.
+8. **End**  
+

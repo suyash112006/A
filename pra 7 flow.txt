@@ -1,0 +1,124 @@
+Add a Member:
+
+               +----------------------+
+               | User chooses to add  |
+               +----------------------+
+                         |
+                         v
+       +----------------+-----------------------+
+       |                |                       |
+As President      As Secretary           In the Middle
+       |                |                       |
+       v                v                       v
+ +---------------+ +--------------+  +--------------------------+
+ | Create new    | | Traverse to  |  | Traverse to position     |
+ | node          | | the last     |  | before desired location  |
+ +---------------+ | node         |  +--------------------------+
+       |                |                       |
+       v                v                       v
+ +---------------+ +--------------+  +--------------------------+
+ | Point new     | | Create new   |  | Create new node          |
+ | node's next to| | node         |  +--------------------------+
+ | current head  | +--------------+          |
+ +---------------+       |                   v
+       |                v          +-------------------+
+       |      +----------------+   | Point new node's  |
+       |      | Set last node's |  | next to next node|
+       |      | next to new node|  +-------------------+
+       |      +----------------+           |
+       v                |                  v
+  +---------------+     |  +--------------------------+
+  | Update head to|     |  | Update previous node's   |
+  | new node      |     |  | next to new node         |
+  +---------------+     |  +--------------------------+
+                         |
+                         v
+              +------------------+
+              | Member added     |
+              +------------------+
+
+Delete a Member:
+
+               +----------------------+
+               | User chooses to delete|
+               +----------------------+
+                         |
+                         v
+       +----------------+-------------------------+
+       |                |                         |
+ Delete President  Delete Secretary       Delete in Middle
+       |                |                         |
+       v                v                         v
+ +--------------+ +----------------+  +--------------------------+
+ | Update head  | | Traverse to    |  | Traverse to position     |
+ | to next node | | second-to-last |  | before desired node      |
+ +--------------+ | node           |  +--------------------------+
+       |                |                         |
+       v                v                         v
+ +--------------+ +----------------+  +--------------------------+
+ | Delete old   | | Update second- |  | Update next to skip      |
+ | head node    | | to-last node's |  | target node              |
+ +--------------+ | next to NULL   |  +--------------------------+
+                  +----------------+
+                         |
+                         v
+                  +------------------+
+                  | Member deleted   |
+                  +------------------+
+
+Display Members:
+
+      +----------------------+
+      | User chooses to      |
+      | display members      |
+      +----------------------+
+                 |
+                 v
+      +----------------------+
+      | Start from head      |
+      +----------------------+
+                 |
+                 v
+      +----------------------+
+      | Traverse list,       |
+      | printing prn and name|
+      +----------------------+
+                 |
+                 v
+      +----------------------+
+      | Mark first as        |
+      | President and last   |
+      | as Secretary         |
+      +----------------------+
+                 |
+                 v
+      +----------------------+
+      | Members displayed    |
+      +----------------------+
+
+Concatenate Two Lists:
+
+      +----------------------+
+      | User chooses to      |
+      | concatenate lists    |
+      +----------------------+
+                 |
+                 v
+      +----------------------+
+      | Traverse to end of   |
+      | first list           |
+      +----------------------+
+                 |
+                 v
+      +----------------------+
+      | Point last node of   |
+      | first list to head of|
+      | second list          |
+      +----------------------+
+                 |
+                 v
+      +----------------------+
+      | Lists concatenated   |
+      +----------------------+
+
+

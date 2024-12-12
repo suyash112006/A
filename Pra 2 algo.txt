@@ -1,0 +1,38 @@
+
+### Algorithm for Deposit and Withdrawal Operations
+
+#### Deposit Algorithm
+
+1. **Start**
+
+2. **Enter Amount**
+   - Prompt the user to enter the amount to be deposited.
+
+3. **Add to Balance**
+   - Add the entered amount to the current balance.
+
+4. **Display Updated Balance**
+   - Show the updated balance to the user.
+
+5. **End**
+
+#### Withdrawal Algorithm
+
+1. **Start**
+
+2. **Enter Amount**
+   - Prompt the user to enter the amount to be withdrawn.
+
+3. **Check Balance**
+   - If the entered amount is greater than the current balance:
+     - Display message: "Insufficient balance."
+     - Withdrawal is not allowed if it causes the balance to go negative.
+   - Else:
+     - Subtract the entered amount from the current balance.
+
+4. **Display Updated Balance**
+   - Show the updated balance to the user.
+
+5. **End**
+
+This simplified version of the algorithms should be easy to remember and write during an exam. If you need further details or explanations, feel free to ask! 😊

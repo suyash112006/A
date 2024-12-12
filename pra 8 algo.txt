@@ -1,0 +1,32 @@
+Algorithm 
+1. Ask User to enter seat number to be booked.  
+2. Check weather seat no is a valid seat number Between 1 to 70 
+3. Check current status of seat, if already booked. 
+4. Ask to enter Valid ID Number to book seat 
+5. Book seat if seat available. 
+
+
+### Seat Booking Algorithm
+
+1. **Start**
+
+2. **Ask for Seat Number**
+   - Prompt the user to enter the seat number they wish to book.
+
+3. **Validate Seat Number**
+   - Check if the entered seat number is between 1 and 70.
+   - If the seat number is invalid, inform the user and ask for a valid seat number.
+
+4. **Check Seat Status**
+   - Verify if the seat is already booked.
+   - If the seat is booked, inform the user and allow them to choose another seat.
+
+5. **Request Valid ID**
+   - Prompt the user to enter a valid ID number to book the seat.
+
+6. **Book Seat**
+   - If the seat is available, book the seat and confirm the booking.
+
+7. **End**
+
+This concise algorithm covers the necessary steps for booking a seat, ensuring clarity and simplicity, perfect for an exam. If you need any further explanations or a detailed flowchart, feel free to ask! 😊

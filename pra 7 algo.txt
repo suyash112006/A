@@ -1,0 +1,63 @@
+### Algorithm for Managing Pinnacle Club Members Using a Singly Linked List
+
+#### **Step 1: Define Node Structure**
+1. Create a `Node` structure with:
+   - `prn`: Member's ID.
+   - `name`: Member's name.
+   - `next`: Pointer to the next node.
+
+#### **Step 2: Initialize the Linked List**
+1. Start with an empty list (`head = NULL`).
+
+#### **Step 3: Add a Member**
+1. **Add as President**:
+   - Create a new node.
+   - Set the new node's `next` to the current `head`.
+   - Update `head` to the new node.
+2. **Add as Secretary**:
+   - Traverse to the last node in the list.
+   - Create a new node.
+   - Set the last node's `next` to the new node.
+3. **Add in the Middle**:
+   - Traverse to the position before the desired location.
+   - Create a new node.
+   - Set the new node's `next` to the next node in the list.
+   - Update the previous node's `next` to the new node.
+
+#### **Step 4: Delete a Member**
+1. **Delete the President**:
+   - Update `head` to point to the next node.
+   - Delete the old head node.
+2. **Delete the Secretary**:
+   - Traverse to the second-to-last node.
+   - Update its `next` to `NULL`.
+   - Delete the last node.
+3. **Delete a Member in the Middle**:
+   - Traverse to the position before the desired node.
+   - Update its `next` to skip the target node.
+   - Delete the target node.
+
+#### **Step 5: Display Members**
+1. Start from the `head`.
+2. Traverse through the list, printing each node's `prn` and `name`.
+3. Mark the first member as "President" and the last member as "Secretary."
+
+#### **Step 6: Count Members**
+1. Start from the `head`.
+2. Traverse the list while counting nodes.
+3. Return the total count.
+
+#### **Step 7: Concatenate Two Lists**
+1. Traverse to the end of the first list.
+2. Point the last node of the first list to the `head` of the second list.
+
+#### **Step 8: Main Menu**
+1. Display options to:
+   - Add a member.
+   - Delete a member.
+   - Count members.
+   - Display the list.
+   - Concatenate two lists.
+2. Perform the selected operation.
+3. Repeat until the user exits.
+

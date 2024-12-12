@@ -1,0 +1,11 @@
+Algorithm: 
+Step  1.Start 
+Step  2. Declare integers i,n,ch,data,arr[MAX],data=10,data1. 
+Step 3. Declare character ch. 
+Step 4.Declare nodes *p,*next. 
+Step 5.Call function create 
+Step 6.Call function add 
+Step 7.Call function delete 
+Step 8.Call function print 
+Step 9.Display queue 
+Step 10.Stop 

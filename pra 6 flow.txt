@@ -1,0 +1,38 @@
+       Start
+         |
+         v
+  Initialize Variables
+         |
+         v
+  Read Elements into Array
+         |
+         v
+  Is Array Size > 1?
+      /     \
+    Yes      No
+     |        |
+     |      Stop
+     |
+     v
+  Select Pivot
+     (Last Element)
+         |
+         v
+ Partition Array around Pivot
+   (Elements < Pivot on Left,
+    Elements > Pivot on Right)
+         |
+         v
+  Apply Quick Sort Recursively
+   on Left Subarray and Right 
+         Subarray
+         |
+         v
+  Combine Results
+         |
+         v
+ Print Sorted Array
+         |
+         v
+        Stop
+pra

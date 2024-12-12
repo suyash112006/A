@@ -1,0 +1,13 @@
+Algorithm: 
+Step  1.Start 
+Step  2. Declare integers i,n,ch,data,arr[MAX],data=10,data1. 
+Step 3. Declare character ch. 
+Step 4.Declare nodes *p,*next. 
+Step 5.Call function create 
+ Step 6.Call function add from front 
+ Step 7 Call function add from rear 
+  Step 8.Call function delete from front 
+  Step 9.Call function delete from rear 
+  Step 10.Call function print 
+  Step 11.Display queue 
+  Step 12.Stop
