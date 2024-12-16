@@ -1,0 +1,106 @@
+cg practical 2
+
+#include<iostream>
+#include<graphics.h>
+#include<math.h>
+
+using namespace std;
+
+class coord{
+    public:
+         int dx,dy,steps;
+        float xi,yi;
+        int x,y,d;
+};
+
+class draw:public coord{
+    public:
+        void ddaline(int x1,int y1,int x2,int y2){
+            dx=x2-x1;
+            dy=y2-y1;
+            if(abs(dx)>abs(dy)){
+                steps=dx;
+            }else{
+            steps=dy;
+            }
+
+            xi=dx/(float)steps;
+            yi=dy/(float)steps;
+            float x=x1;
+            float y=y1;
+            
+            for(int i=0;i<=steps;i++){
+                putpixel(round(x),round(y),WHITE);
+                x+=xi;
+                y+=yi;
+            }
+        }
+
+    void bresenhamcircle(int xcenter,int ycenter,int radius){
+        x=0;
+        y=radius;
+        d=3-2*radius;
+        while(x<=y){
+            putpixel(xcenter+x,ycenter+y,WHITE);
+            putpixel(xcenter-x,ycenter+y,WHITE);
+            putpixel(xcenter+x,ycenter-y,WHITE);
+            putpixel(xcenter-x,ycenter-y,WHITE);
+            putpixel(xcenter+y,ycenter+x,WHITE);
+            putpixel(xcenter-y,ycenter+x,WHITE);
+            putpixel(xcenter+y,ycenter-x,WHITE);
+            putpixel(xcenter-y,ycenter-x,WHITE);
+        
+            if(d<0){
+                d=d+4*x+6;
+            }
+            else{
+                d=d+4*(x-y)+10;
+                y--;
+            }
+            x++;
+        }
+    }   
+};
+
+int main(){
+    int gd=DETECT, gm;
+    char data[]="c:\\mingw\\lib\\libbgi.a";
+    initgraph(&gd,&gm,data);
+    draw drawer;
+    int choice;
+    
+    do{
+        cout<<"choose an option:\n";
+        cout<<"1. draw a line\n";
+        cout<<"2. draw a circle\n";
+        cout<<"enter your choice (1 or 2): ";
+        cin>>choice;
+        
+        switch(choice){
+            case 1:{
+                int x1,y1,x2,y2;
+                cout<<"enter the coordinates of the first point (x1 y1): ";
+                cin>>x1>>y1;
+                cout<<"enter the coordinates of the second point (x2 y2): ";
+                cin>>x2>>y2;
+                drawer.ddaline(x1,y1,x2,y2);
+                break;
+            }
+            case 2:{
+                int xcenter,ycenter,radius;
+                cout<<"enter the center of the circle (x y): ";
+                cin>>xcenter>>ycenter;
+                cout<<"enter the radius of the circle: ";
+                cin>>radius;
+                drawer.bresenhamcircle(xcenter,ycenter,radius);
+                break;
+            }
+            default:
+                cout<<"invalid choice! please run the program again.";
+        }
+    }while(choice<3);
+
+closegraph();
+
+return 0;
+}

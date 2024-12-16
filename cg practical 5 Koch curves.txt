@@ -1,0 +1,110 @@
+cg practical 5
+
+#include <iostream>
+#include <graphics.h>
+#include <math.h>
+using namespace std;
+
+class Transform 
+{
+public:
+    int m;
+    int a[20][3];  
+    int c[20][3]; 
+    void draw(int x[20][3]) 
+ {
+        cleardevice();
+        for (int i = 0; i < m; i++) 
+   {
+            line(x[i][0], x[i][1], x[(i + 1)%m][0], x[(i + 1)%m][1]);
+            delay(100);
+        }
+    }
+    void operator*(float b[3][3]) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < 3; j++) {
+                c[i][j] = 0;
+                for (int k = 0; k < 3; k++) {
+                    c[i][j] += (a[i][k] * b[k][j]);
+                }
+            }
+        }
+    }
+};
+int main() 
+{
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, NULL);
+    Transform t;
+    cout << "\nEnter the Number of Edges: ";
+    cin >> t.m;
+    cout << "\nEnter the Coordinates (x y): ";
+    for (int i = 0; i < t.m; i++) {
+        cin >> t.a[i][0] >> t.a[i][1];
+        t.a[i][2] = 1; 
+    }
+    t.draw(t.a);
+    int ch;
+    do {
+        cout << "\nEnter your choice";
+        cout << "\n1. Translation"
+             << "\n2. Scaling"
+             << "\n3. Rotation"
+             << "\n4. Exit";
+        cin >> ch;
+        float b[3][3];
+        switch (ch) {
+            case 1: {
+                int tx, ty;
+                cout << "\nTRANSLATION OPERATION\n";
+                cout << "Enter value for tx and ty: ";
+                cin >> tx >> ty;
+                b[0][0] = 1; b[0][1] = 0; b[0][2] = 0;
+                b[1][0] = 0; b[1][1] = 1; b[1][2] = 0;
+                b[2][0] = tx; b[2][1] = ty; b[2][2] = 1;
+                t *b;
+                t.draw(t.a);
+                delay(500);
+                t.draw(t.c);
+                break;
+            }
+            case 2: {
+                float sx, sy;
+                cout << "\nSCALING OPERATION\n";
+                cout << "Enter value for sx and sy: ";
+                cin >> sx >> sy;
+                b[0][0] = sx; b[0][1] = 0; b[0][2] = 0;
+                b[1][0] = 0; b[1][1] = sy; b[1][2] = 0;
+                b[2][0] = 0; b[2][1] = 0; b[2][2] = 1;
+                t *b;
+                t.draw(t.a);
+                delay(500);
+                t.draw(t.c);
+                break;
+            }
+            case 3: {
+                float deg, theta;
+                cout << "\nROTATION OPERATION\n";
+                cout << "Enter value for angle (in degrees): ";
+                cin >> deg;
+                theta = deg * (3.14 / 180);
+                b[0][0] = cos(theta); b[0][1] = sin(theta); b[0][2] = 0;
+                b[1][0] = -sin(theta); b[1][1] = cos(theta); b[1][2] = 0;
+                b[2][0] = 0; b[2][1] = 0; b[2][2] = 1;
+                t *b;
+                t.draw(t.a);
+                delay(500);
+                t.draw(t.c);
+                break;
+            }
+            case 4:
+                cout << "Exiting...";
+                break;
+            default:
+                cout << "\nInvalid choice";
+                break;
+        }
+    } while (ch < 4);
+    closegraph();
+    return 0;
+}

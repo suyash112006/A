@@ -1,0 +1,64 @@
+cg practical 7
+
+#include <iostream>
+#include <graphics.h>
+#include<cstdlib>
+using namespace std;
+
+class Animation 
+{
+public:
+    void drawRain(int frame) 
+ {
+        for (int i = 0; i < 100; i++) 
+ {
+            int x = rand() % 600;  
+            int y = rand() % 400;   
+            line(x, y, x+2 , y + 10);  
+        }
+    }
+
+    void walk() {
+        for (int i = 0; i < 500; i++) 
+ {
+            line(0, 400, 600, 400);
+
+            drawRain(i); 
+            circle(50 + i, 250, 15);   
+            line(50 + i, 265, 50 + i, 350);   
+
+            if (i % 4 == 0) {
+                line(50 + i, 350, 80 + i , 400); 
+                line(50 + i, 350, 20 + i, 400);            
+            } else {
+                line(50 + i, 350, 80 + i, 400);           
+                line(50 + i, 350, 20 + i, 400); 
+            }
+
+            line(50 + i, 295, 20 + i, 330);    
+            line(50 + i, 295, 80 + i, 330);    
+
+            arc(100 + i, 220, 360, 180, 50);   
+            line(100 + i, 220, 100 + i, 310);
+            line(50 + i, 220, 150 + i, 220); 
+
+            delay(100);
+
+            if (i < 499) {
+                cleardevice();
+            }
+        }
+    }
+};
+
+int main() 
+{
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, NULL);
+
+    Animation animation;
+    animation.walk(); 
+
+    closegraph();
+    return 0;
+}

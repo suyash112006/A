@@ -1,0 +1,68 @@
+cg practical 3 
+
+#include<iostream>
+#include<graphics.h>
+#include<algorithm>
+using namespace std;
+
+class Shape{
+    public:
+    void scanfill(int x[],int y[],int n)
+    {                      
+        int i, j, k, ymin = y[0], ymax = y[0], xi[20];
+        for (i = 0; i < n; i++) {
+            if (y[i] < ymin) ymin = y[i];
+            if (y[i] > ymax) ymax = y[i];
+        }
+        for (int s = ymin; s <= ymax; s++) 
+        {  k = 0;
+
+            for (i = 0; i < n; i++) 
+            { 
+                j = (i + 1) ;
+
+                if ((y[i] < s && y[j] >= s) || (y[j] < s && y[i] >= s)) 
+                {  xi[k++] = x[i] + (s - y[i]) * (x[j] - x[i]) / (y[j] - y[i]);}
+              
+            }
+        
+            sort(xi, xi + k);
+            for (i = 0; i < k - 1; i += 2) 
+            {
+                line(xi[i], s, xi[i + 1], s);
+                delay(5);
+            }
+        }
+    }
+};
+
+int main()
+ {
+    int gd=DETECT,gm;
+    initgraph(&gd, &gm, NULL);
+    Shape obj;
+    
+    int v;
+    cout<<"enter no of vertices for polygon  ; ";
+    cin>>v;
+    int x[100];
+    int y[100];
+    for (int i=0;i<v;i++)
+      {
+         cout<<"enter cords for x : ";
+         cin>>x[i];
+         cout<<"enter cordds for y; ";
+         cin>>y[i];      
+      }
+    x[v]=x[0];
+    y[v]=y[0];
+    for (int i=0;i<v;i++)
+      {
+         line(x[i],y[i],x[i+1],y[i+1]);
+         delay(200);      
+      }
+    obj.scanfill(x,y,v);
+    delay(2000);
+    closegraph();
+   return 0;
+ }
