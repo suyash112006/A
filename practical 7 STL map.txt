@@ -1,0 +1,60 @@
+#include <iostream>
+#include <map>
+#include <string>
+#include <utility>
+
+using namespace std;
+
+int main() {
+    typedef map<string, float> mapType; // Map type for storing state populations
+    mapType populationMap;
+
+    // Inserting population data
+    populationMap.insert(pair<string, float>("Maharashtra", 125.0f));
+    populationMap.insert(pair<string, float>("Uttar Pradesh", 225.0f));
+    populationMap.insert(mapType::value_type("Bihar", 120.0f));
+    populationMap.insert(mapType::value_type("West Bengal", 100.0f));
+    populationMap.insert(make_pair("Madhya Pradesh", 90.0f));
+    populationMap.insert(make_pair("Tamil Nadu", 80.0f));
+    populationMap.insert(make_pair("Rajasthan", 78.0f));
+
+    // Check and erase the last entry if the map is not empty
+    if (!populationMap.empty()) {
+        auto iter = --populationMap.end(); // Iterator to the last element
+        populationMap.erase(iter);
+    }
+
+    // Display the number of states with population data
+    cout << "Total states in India with population data: " << populationMap.size() << '\n';
+
+    // Display all state populations
+    cout << "\nState Populations:\n";
+    for (const auto& entry : populationMap) {
+        cout << entry.first << ": " << entry.second << " million\n";
+    }
+
+    // Query state population in a loop
+    char c;
+    do {
+        string state;
+        cout << "\nEnter the state you want to know the population of: ";
+        cin >> state;
+
+        // Search for the state in the map
+        auto iter = populationMap.find(state);
+        if (iter != populationMap.end()) {
+            cout << state << "'s population is " << iter->second << " million\n";
+        } else {
+            cout << "State is not in the population map.\n";
+        }
+
+        cout << "Do you wish to continue? (y/n): ";
+        cin >> c;
+    } while (c == 'y' || c == 'Y');
+
+    // Clear the map
+    populationMap.clear();
+    cout << "\nPopulation data cleared. Exiting program.\n";
+
+    return 0;
+}

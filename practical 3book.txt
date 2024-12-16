@@ -1,0 +1,133 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Base class: Publication
+class Publication {
+private:
+    string title;
+    float price;
+
+public:
+    void add() {
+        cout << "\nEnter the Publication information: " << endl;
+        cout << "Enter Title of the Publication: ";
+        cin.ignore();
+        getline(cin, title);
+        cout << "Enter Price of Publication: ";
+        cin >> price;
+    }
+
+    void display() {
+        cout << "\n--------------------------------------------------";
+        cout << "\nTitle of Publication: " << title;
+        cout << "\nPublication Price: " << price;
+    }
+};
+
+// Derived class: Book (inherits from Publication)
+class Book : public Publication {
+private:
+    int page_count;
+
+public:
+    void add_book() {
+        try {
+            add();
+            cout << "Enter Page Count of Book: ";
+            cin >> page_count;
+            if (page_count <= 0) {
+                throw page_count;
+            }
+        } catch (...) {
+            cout << "\nInvalid Page Count!!!";
+            page_count = 0;
+        }
+    }
+
+    void display_book() {
+        display();
+        cout << "\nPage Count: " << page_count;
+        cout << "\n--------------------------------------------------\n";
+    }
+};
+
+// Derived class: Tape (inherits from Publication)
+class Tape : public Publication {
+private:
+    float play_time;
+
+public:
+    void add_tape() {
+        try {
+            add();
+            cout << "Enter Play Duration of the Tape (in minutes): ";
+            cin >> play_time;
+            if (play_time <= 0) {
+                throw play_time;
+            }
+        } catch (...) {
+            cout << "\nInvalid Play Time!!!";
+            play_time = 0;
+        }
+    }
+
+    void display_tape() {
+        display();
+        cout << "\nPlay Time: " << play_time << " min";
+        cout << "\n--------------------------------------------------\n";
+    }
+};
+
+// Main function
+int main() {
+    Book books[10];     // Array of Book objects
+    Tape tapes[10];     // Array of Tape objects
+    int choice, book_count = 0, tape_count = 0;
+
+    do {
+        cout << "\n* * * * * PUBLICATION DATABASE SYSTEM * * * * *";
+        cout << "\n-------------------- MENU -----------------------";
+        cout << "\n1. Add Information to Books";
+        cout << "\n2. Add Information to Tapes";
+        cout << "\n3. Display Books Information";
+        cout << "\n4. Display Tapes Information";
+        cout << "\n5. Exit";
+        cout << "\n\nEnter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            books[book_count].add_book();
+            book_count++;
+            break;
+
+        case 2:
+            tapes[tape_count].add_tape();
+            tape_count++;
+            break;
+
+        case 3:
+            cout << "\n* * * * BOOK PUBLICATION DATABASE SYSTEM * * * *";
+            for (int i = 0; i < book_count; i++) {
+                books[i].display_book();
+            }
+            break;
+
+        case 4:
+            cout << "\n* * * * TAPE PUBLICATION DATABASE SYSTEM * * * *";
+            for (int i = 0; i < tape_count; i++) {
+                tapes[i].display_tape();
+            }
+            break;
+
+        case 5:
+            exit(0);
+
+        default:
+            cout << "\nInvalid choice! Please try again.";
+        }
+    } while (choice != 5);
+
+    return 0;
+}

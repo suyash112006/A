@@ -1,0 +1,76 @@
+#include<iostream>
+#include<fstream>
+#include<vector>
+using namespace std;
+
+class Employee {
+    string Name;
+    int ID;
+    double salary;
+public:
+    void accept() {
+        cout << "\n Name: ";
+        cin.ignore();
+        getline(cin, Name);
+        cout << "\n ID: ";
+        cin >> ID;
+        cout << "\n Salary: ";
+        cin >> salary;
+    }
+    void display() const {
+        cout << "\n Name: " << Name;
+        cout << "\n ID: " << ID;
+        cout << "\n Salary: " << salary << endl;
+    }
+    // Serialization and deserialization methods
+    void writeToFile(ofstream& outFile) const {
+        size_t nameSize = Name.size();
+        outFile.write((char*)&nameSize, sizeof(nameSize));
+        outFile.write(Name.c_str(), nameSize);
+        outFile.write((char*)&ID, sizeof(ID));
+        outFile.write((char*)&salary, sizeof(salary));
+    }
+    void readFromFile(ifstream& inFile) {
+        size_t nameSize;
+        inFile.read((char*)&nameSize, sizeof(nameSize));
+        Name.resize(nameSize);
+        inFile.read(&Name[0], nameSize);
+        inFile.read((char*)&ID, sizeof(ID));
+        inFile.read((char*)&salary, sizeof(salary));
+    }
+};
+
+int main() {
+    vector<Employee> employees;
+    int n;
+
+    cout << "\n Enter the number of employees you want to store: ";
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        cout << "\n Enter information for Employee " << i + 1 << "\n";
+        Employee emp;
+        emp.accept();
+        employees.push_back(emp);
+    }
+
+    // Writing to file
+    ofstream outFile("demo.txt", ios::binary);
+    for (const auto& emp : employees) {
+        emp.writeToFile(outFile);
+    }
+    outFile.close();
+
+    // Reading from file
+    ifstream inFile("demo.txt", ios::binary);
+    cout << "\n Information of Employees is as follows: \n";
+    for (int i = 0; i < n; i++) {
+        Employee emp;
+        emp.readFromFile(inFile);
+        cout << "\nEmployee " << i + 1 << "\n";
+        emp.display();
+    }
+    inFile.close();
+
+    return 0;
+}

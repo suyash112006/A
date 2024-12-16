@@ -1,0 +1,100 @@
+#include <iostream>
+#include <vector>
+#include <stdexcept> // For exception handling
+using namespace std;
+
+// Template for Selection Sort
+template <class T>
+void selectionSort(vector<T>& arr) {
+    int n = arr.size();
+    for (int i = 0; i < n - 1; i++) {
+        int minIndex = i;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex])
+                minIndex = j;
+        }
+        swap(arr[i], arr[minIndex]);
+    }
+    cout << "\nSorted array:";
+    for (const auto& val : arr) {
+        cout << " " << val;
+    }
+    cout << endl;
+}
+
+// Function to handle integer input and sorting
+void handleIntegerSort() {
+    int n;
+    cout << "\nEnter the number of integer elements: ";
+    cin >> n;
+    if (n <= 0) {
+        cout << "\nInvalid size! Please enter a positive number.\n";
+        return;
+    }
+    vector<int> intArr(n);
+    cout << "\nEnter integer elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> intArr[i];
+    }
+    cout << "\nUnsorted array:";
+    for (const auto& val : intArr) {
+        cout << " " << val;
+    }
+    cout << endl;
+    selectionSort(intArr);
+}
+
+// Function to handle float input and sorting
+void handleFloatSort() {
+    int n;
+    cout << "\nEnter the number of float elements: ";
+    cin >> n;
+    if (n <= 0) {
+        cout << "\nInvalid size! Please enter a positive number.\n";
+        return;
+    }
+    vector<float> floatArr(n);
+    cout << "\nEnter float elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> floatArr[i];
+    }
+    cout << "\nUnsorted array:";
+    for (const auto& val : floatArr) {
+        cout << " " << val;
+    }
+    cout << endl;
+    selectionSort(floatArr);
+}
+
+int main() {
+    int choice;
+    do {
+        cout << "\n* * * * * SELECTION SORT SYSTEM * * * * *";
+        cout << "\n--------------------MENU-----------------------";
+        cout << "\n1. Integer Values";
+        cout << "\n2. Float Values";
+        cout << "\n3. Exit";
+        cout << "\n\nEnter your choice: ";
+        cin >> choice;
+
+        try {
+            switch (choice) {
+                case 1:
+                    handleIntegerSort();
+                    break;
+                case 2:
+                    handleFloatSort();
+                    break;
+                case 3:
+                    cout << "\nExiting program. Goodbye!\n";
+                    break;
+                default:
+                    cout << "\nInvalid choice! Please try again.\n";
+            }
+        } catch (exception& e) {
+            cout << "\nAn error occurred: " << e.what() << endl;
+        }
+    } while (choice != 3);
+
+    return 0;
+}
